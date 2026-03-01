@@ -151,27 +151,27 @@ export const PORTFOLIO_CATEGORIES = [
 export const SOCIALS = [
   {
     platform: 'Instagram',
-    handle:   '@your_handle',            // TODO: your Instagram handle
-    href:     'https://instagram.com/your_handle',
+    handle:   '@debanjan925',            // TODO: your Instagram handle
+    href:     'https://www.instagram.com/debanjan925/',
   },
   {
     platform: 'YouTube',
-    handle:   '@your_channel',           // TODO: your YouTube channel
-    href:     'https://youtube.com/@your_channel',
+    handle:   '@idiobyte3934',           // TODO: your YouTube channel
+    href:     'https://www.youtube.com/@idiobyte3934',
   },
   {
     platform: 'Twitter',
-    handle:   '@your_handle',            // TODO: your Twitter/X handle
-    href:     'https://twitter.com/your_handle',
+    handle:   '@debanjan925',            // TODO: your Twitter/X handle
+    href:     'https://www.instagram.com/debanjan925/',
   },
   {
     platform: 'LinkedIn',
-    handle:   'your_profile',            // TODO: your LinkedIn name
-    href:     'https://linkedin.com/in/your_profile',
+    handle:   'debanjan-choudhury',            // TODO: your LinkedIn name
+    href:     'https://www.linkedin.com/in/debanjan-choudhury-0753a0210/',
   },
   {
     platform: 'Email',
-    handle:   'youremail@gmail.com',     // TODO: your real email
-    href:     'mailto:youremail@gmail.com',
+    handle:   'debanjanchoudhury12@gmail.com',     // TODO: your real email
+    href:     'mailto:debanjanchoudhury12@gmail.com',
   },
 ];

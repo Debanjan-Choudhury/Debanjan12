@@ -1,0 +1,164 @@
+/**
+ * Navbar.css
+ * Fixed navigation bar — transparent on top, frosted glass on scroll.
+ * Desktop: logo (left) | links (centre) | CTA (right) — 3-zone flex layout.
+ * Mobile:  logo (left) | hamburger (right) — full-screen overlay menu.
+ */
+
+/* ── Nav shell ───────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 3rem;
+  transition: background 0.4s, padding 0.4s var(--ease);
+}
+nav.scrolled {
+  background: rgba(8, 9, 9, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 3rem;
+}
+
+/* ── Logo ────────────────────────────────────────────────────── */
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  text-decoration: none;
+  flex-shrink: 0;           /* never let logo shrink */
+  z-index: 1;
+}
+.nav-logo span { color: var(--gold); }
+
+/* ── Desktop link list ───────────────────────────────────────── */
+.nav-links {
+  display: flex;             /* shown on desktop */
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links li { display: flex; align-items: center; }
+
+.nav-links a {
+  color: var(--muted2);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  transition: color 0.3s;
+  position: relative;
+  white-space: nowrap;
+  padding: 0.25rem 0;       /* slightly larger click target */
+}
+/* Gold underline slide-in on hover */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.35s var(--ease);
+}
+.nav-links a:hover           { color: var(--white); }
+.nav-links a:hover::after    { width: 100%; }
+
+/* ── "Hire Me" pill CTA (last item in nav-links) ────────────── */
+.nav-cta {
+  padding: 0.5rem 1.3rem;
+  border: 1px solid var(--border2);
+  border-radius: 100px;
+  color: var(--muted2) !important;
+  /* override the underline + hover colour from .nav-links a */
+  transition: background 0.3s, border-color 0.3s, color 0.3s !important;
+}
+.nav-cta::after  { display: none !important; } /* no underline */
+.nav-cta:hover {
+  background: var(--gold) !important;
+  border-color: var(--gold) !important;
+  color: #080909 !important;
+}
+
+/* ── Hamburger ── hidden on desktop, shown on mobile ─────────── */
+.hamburger {
+  display: none;            /* ← hidden by default (desktop) */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px 4px;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.35s var(--ease), opacity 0.3s, width 0.3s;
+}
+/* Animated X when open */
+.hamburger.open span:nth-child(1) { transform: translateY(7px)  rotate(45deg);  }
+.hamburger.open span:nth-child(2) { opacity: 0; width: 0;                        }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Mobile full-screen overlay ─────────────────────────────── */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 9, 9, 0.97);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  display: none;             /* toggled to flex via .open */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease);
+}
+.mobile-menu.open {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--muted2);
+  text-decoration: none;
+  transition: color 0.3s;
+  letter-spacing: -0.02em;
+}
+.mobile-menu a:hover  { color: var(--gold); }
+.mobile-menu .hire-me { color: var(--gold); }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  nav          { padding: 1rem 1.5rem; }
+  nav.scrolled { padding: 0.8rem 1.5rem; }
+  .nav-links   { display: none; }     /* hide desktop links */
+  .hamburger   { display: flex; }     /* show hamburger */
+}
+
+/* Tablet — slightly tighter spacing */
+@media (max-width: 1024px) and (min-width: 769px) {
+  nav          { padding: 1.1rem 2rem; }
+  nav.scrolled { padding: 0.8rem 2rem; }
+  .nav-links   { gap: 1.5rem; }
+}

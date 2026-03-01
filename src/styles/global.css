@@ -1,0 +1,257 @@
+/**
+ * global.css
+ * ─────────────────────────────────────────────────────────────
+ * Design tokens (CSS variables), reset, body, grain overlay,
+ * custom cursor, and shared keyframe animations.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+/* ── Google Fonts ─────────────────────────────────────────────
+   TODO: If you change fonts, update this @import and the
+   font-family references in the CSS vars below.
+─────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Outfit:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── Design Tokens ────────────────────────────────────────────
+   TODO: Change --gold to your preferred accent colour.
+─────────────────────────────────────────────────────────────── */
+:root {
+  /* backgrounds */
+  --bg:      #080909;
+  --bg1:     #0c0d0e;
+  --bg2:     #111315;
+  --surface: #161819;
+
+  /* borders */
+  --border:  rgba(255, 255, 255, 0.06);
+  --border2: rgba(255, 255, 255, 0.10);
+
+  /* accent */
+  --gold:    #d4a853;
+  --gold2:   #f0c878;
+  --amber:   #c87941;
+
+  /* text */
+  --text:    #f2ede8;
+  --muted:   #6b6560;
+  --muted2:  #9a9490;
+  --white:   #ffffff;
+
+  /* easing curves */
+  --ease:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease2: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* font stacks */
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body:    'Outfit', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}
+
+/* ── Reset ────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background:   var(--bg);
+  color:        var(--text);
+  font-family:  var(--font-body);
+  font-weight:  300;
+  line-height:  1.6;
+  overflow-x:   hidden;
+  cursor:       none; /* custom cursor active */
+}
+
+/* ── Film-grain overlay ───────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9000;
+}
+
+/* ── Custom Cursor ────────────────────────────────────────────── */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s;
+  mix-blend-mode: difference;
+}
+.cursor-dot.expand {
+  width: 44px;
+  height: 44px;
+  background: rgba(212, 168, 83, 0.15);
+}
+
+.cursor-trail {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(212, 168, 83, 0.35);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+/* ── Shared Keyframes ─────────────────────────────────────────── */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1;  }
+  50%       { opacity: 0.3; }
+}
+
+@keyframes floatC {
+  from { transform: translateY(0);     }
+  to   { transform: translateY(-10px); }
+}
+
+@keyframes gridIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Scroll-reveal classes (driven by useScrollReveal hook) ───── */
+.reveal   { opacity: 0; transform: translateY(36px);  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal-l { opacity: 0; transform: translateX(-36px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal-r { opacity: 0; transform: translateX(36px);  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+
+.reveal.on, .reveal-l.on, .reveal-r.on {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* Stagger delay helpers */
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+.d4 { transition-delay: 0.4s; }
+.d5 { transition-delay: 0.5s; }
+
+/* ── Shared section wrappers ──────────────────────────────────── */
+.section-wrap { padding: 7rem 3rem; }
+
+.section-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+.section-chip::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.section-sub {
+  font-size: 0.95rem;
+  color: var(--muted2);
+  max-width: 500px;
+  line-height: 1.75;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────── */
+.btn-fill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: var(--gold);
+  color: #080909;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease), background 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-fill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.4s var(--ease);
+}
+.btn-fill:hover::before { transform: translateX(0); }
+.btn-fill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(212, 168, 83, 0.3);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 400;
+  text-decoration: none;
+  border-radius: 100px;
+  border: 1px solid var(--border2);
+  cursor: pointer;
+  transition: transform 0.3s var(--ease), border-color 0.3s, background 0.3s;
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  background: rgba(212, 168, 83, 0.07);
+  transform: translateY(-2px);
+}
+
+/* ── Responsive shared ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section-wrap { padding: 5rem 1.5rem; }
+}

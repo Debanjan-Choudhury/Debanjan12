@@ -1,7 +1,7 @@
 {
   "name": "debanjan-portfolio",
-  "version": "1.0.0",
   "private": true,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,13 +9,26 @@
     "preview": "vite preview"
   },
   "dependencies": {
-  "@emailjs/browser": "^4.4.1",
-  "react": "^18.3.1",
-  "react-dom": "^18.3.1",
-  "vite": "^4.5.14"
-},
-"devDependencies": {
-  "@vitejs/plugin-react": "^4.0.0"
-}
+    "@emailjs/browser": "^4.4.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^4.5.14"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0"
   
+  },
+  "description": "> Built with React 18 + Vite. All content is in one config file.",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Debanjan-Choudhury/Debanjan12.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Debanjan-Choudhury/Debanjan12/issues"
+  },
+  "homepage": "https://github.com/Debanjan-Choudhury/Debanjan12#readme"
 }

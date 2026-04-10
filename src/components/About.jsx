@@ -36,15 +36,20 @@ const About = () => {
                 2. Replace the placeholder below with:
 
                 <img
-                  src="/images/about-photo.jpg"
+                  src="/images/about-photo.gif"
                   alt="Debanjan"
                   style={{ width:'100%', height:'100%', objectFit:'cover', borderRadius:'20px' }}
                 />
             ──────────────────────────────────────────────── */}
-            <PersonIcon />
+            {/* <PersonIcon /> */}
             <span style={{ fontSize:'0.62rem', letterSpacing:'0.12em', color:'var(--muted)' }}>
-              YOUR PHOTO HERE
+              <img
+                  src="/images/Timeline 1.gif"
+                  alt="Debanjan"
+                  style={{ width:'100%', height:'100%', objectFit:'cover', borderRadius:'20px' }}
+                />
             </span>
+            
           </div>
         </div>
 

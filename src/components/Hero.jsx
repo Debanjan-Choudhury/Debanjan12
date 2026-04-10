@@ -103,14 +103,22 @@ const Hero = () => (
               />
             </div>
         ─────────────────────────────────────────────────── */}
-        <div className="photo-main">
+        {/* <div className="photo-main">
           <div className="photo-placeholder-icon">
             <PersonIcon />
           </div>
           <span style={{ fontSize:'0.65rem', letterSpacing:'0.12em', color:'var(--muted)', textAlign:'center' }}>
             YOUR PHOTO<br />GOES HERE
           </span>
-        </div>
+        </div> */}
+        <div className="photo-main">
+              <img
+                src="/images/hero-photo.jpg"
+                alt="Debanjan Choudhury"
+                style={{ width:'100%', height:'100%', objectFit:'cover',
+                         position:'absolute', inset:0, borderRadius:'20px' }}
+              />
+            </div>
 
         {/* ── Floating info cards ── */}
         <div className="float-card float-card-1">

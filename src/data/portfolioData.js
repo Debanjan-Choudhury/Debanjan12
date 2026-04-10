@@ -136,23 +136,23 @@ export const PORTFOLIO_CATEGORIES = [
   },
   {
     id:    'ai',
-    label: 'AI Generated',
+    label: 'UGC content',
     thumbClass: 't-ai',
     videos: [
       {
-        id:       'LINK_10',             // TODO: replace with real YouTube video ID
-        title:    'AI Dreamscape — Sora + Runway',
-        meta:     'AI Generated · 1:00',
+        id:       'ZVgBH1Q3OoU',             // TODO: replace with real YouTube video ID
+        title:    'Carnival collections',
+        meta:     'UGC Content · 0:23',
       },
       {
-        id:       'LINK_11',             // TODO: replace with real YouTube video ID
-        title:    'AI Fashion Film',
-        meta:     'Midjourney + Runway · 0:45',
+        id:       '718IHjvmfEY',             // TODO: replace with real YouTube video ID
+        title:    'Ganesh Laxmi Two Tone',
+        meta:     'UGC Content · 0:27',
       },
       {
-        id:       'LINK_12',             // TODO: replace with real YouTube video ID
-        title:    'Sci-Fi World Building',
-        meta:     'Sora + Premiere · 1:30',
+        id:       'WFzH1v0SVwo',             // TODO: replace with real YouTube video ID
+        title:    '2d Stopmotion',
+        meta:     'UGC Content · 0:35',
       },
     ],
   },

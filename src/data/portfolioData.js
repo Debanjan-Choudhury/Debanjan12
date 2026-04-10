@@ -85,19 +85,25 @@ export const PORTFOLIO_CATEGORIES = [
     thumbClass: 't-mot',
     videos: [
       {
-        id:       'LINK_4',              // TODO: replace with real YouTube video ID
-        title:    'Logo Reveal Animation',
-        meta:     'After Effects · 0:15',
+        id:       'VXTIOOkPtPY',              // TODO: replace with real YouTube video ID
+        title:    'Diaper Ad',
+        meta:     'After Effects · 0:41',
       },
       {
-        id:       'LINK_5',              // TODO: replace with real YouTube video ID
-        title:    'Kinetic Typography Reel',
-        meta:     'After Effects · 1:30',
+        id:       'iQ7SO6M3pRg',              // TODO: replace with real YouTube video ID
+        title:    'Workflow reel',
+        meta:     'After Effects · 0:25',
       },
       {
-        id:       'LINK_6',              // TODO: replace with real YouTube video ID
-        title:    'Social Media Ad Pack',
-        meta:     'Premiere + AE · 0:30',
+        id:       'eyp9NzYDTkQ',              // TODO: replace with real YouTube video ID
+        title:    'Limo Ad',
+        meta:     'Davinci + AE · 1:03',
+      },
+      {
+      
+        id:       'qJJ0oVIbiyA',              // TODO: replace with real YouTube video ID
+        title:    'Travel Agency',
+        meta:     'Davinci + AE · 0:24',
       },
     ],
   },
@@ -120,6 +126,11 @@ export const PORTFOLIO_CATEGORIES = [
         id:       'Swl7FQjJTiI',              // TODO: replace with real YouTube video ID
         title:    'Headphone animation',
         meta:     'Blender · 4K · 0:10',
+      },
+      {
+        id:       'FYl1A4v_l0U',              // TODO: replace with real YouTube video ID
+        title:    'Perfume animation',
+        meta:     'Blender · 4K · 0:19',
       },
     ],
   },

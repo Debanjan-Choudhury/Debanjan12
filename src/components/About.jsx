@@ -44,7 +44,7 @@ const About = () => {
             {/* <PersonIcon /> */}
             <span style={{ fontSize:'0.62rem', letterSpacing:'0.12em', color:'var(--muted)' }}>
               <img
-                  src="/images/Timeline 1.gif"
+                  src="/images/Timeline 2.gif"
                   alt="Debanjan"
                   style={{ width:'100%', height:'100%', objectFit:'cover', borderRadius:'20px' }}
                 />
